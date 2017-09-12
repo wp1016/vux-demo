@@ -5,7 +5,7 @@ html,body{
   overflow-x:hidden;
   background:#f3f3f3;
 }
-body,h1,h2,h3,h4,h5,h6,ul,li,ol,dl,dt,dd,a,input,textarea{
+body,h1,h2,h3,h4,h5,h6,ul,li,ol,dl,dt,dd,a,input,textarea,p,span{
   margin:0;
   padding:0;
 }
@@ -16,6 +16,13 @@ input,textarea{
   border:0;
   outline:0;
 }
+.clearfix:after{
+  content:'';
+  display:block;
+  clear:both;
+}
+.fl{ float:left;}
+.fr{ float:right;}
 .app{
   //头部公共样式
   .vux-header{
@@ -43,4 +50,5 @@ input,textarea{
     }
   }
 }
+
 

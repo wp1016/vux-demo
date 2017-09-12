@@ -21,7 +21,9 @@ dt,
 dd,
 a,
 input,
-textarea {
+textarea,
+p,
+span {
   margin: 0;
   padding: 0;
 }
@@ -32,6 +34,17 @@ input,
 textarea {
   border: 0;
   outline: 0;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
 }
 .app .vux-header {
   position: fixed;

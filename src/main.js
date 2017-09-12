@@ -5,6 +5,9 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import routes from './router'
 import Vuex from 'vuex'
+import VueScroller from 'vue-scroller'
+
+Vue.use(VueScroller);
 Vue.use(Vuex)
 Vue.use(VueRouter)
 

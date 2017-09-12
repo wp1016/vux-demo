@@ -3,8 +3,8 @@
         <x-header slot="header"  :title="title" :left-options="{backText: '',preventGoBack:'true'}">
           <a slot="right" @click="join">{{msg}}</a>
         </x-header>
-    <scroller :on-infinite="loadMore" ref="scroller">
-      <view-box ref="viewBox" :body-padding-top="'45px'">
+    <scroller :on-infinite="loadMore" ref="scroller" :noDataText="noDataText">
+      <view-box ref="viewBox" :body-padding-top="'45px'" :body-padding-bottom="'0'">
         <div slot="default">
           <div class="content-top">
             <div class="top_wrap clearfix">
@@ -53,7 +53,6 @@
                     </flexbox-item>
                   </flexbox>
                 </cell-box>
-                <divider v-show="nodata">没有更多数据</divider>
               </group>
         </div>
       </view-box>
@@ -93,49 +92,12 @@
         msg:'加入',
         isLoading:false,
         show1:false,
-        nodata:false,
+        noDataText:'我也是有底线的',
         style:{
           zIndex:1001,
           background:'rgba(0,0,0,.4)'
         },
-        list:[
-          {
-            userName:'王涛',
-            pushTime:'05-08 09:45',
-            action:'创建活动',
-            actInfo:'教师特色空间案例讨论'
-          },
-          {
-            userName:'王涛',
-            pushTime:'05-08 09:45',
-            action:'创建活动',
-            actInfo:'教师特色空间案例讨论'
-          },
-          {
-            userName:'王涛',
-            pushTime:'05-08 09:45',
-            action:'创建活动',
-            actInfo:'教师特色空间案例讨论'
-          },
-          {
-            userName:'王涛',
-            pushTime:'05-08 09:45',
-            action:'创建活动',
-            actInfo:'教师特色空间案例讨论'
-          },
-          {
-            userName:'王涛',
-            pushTime:'05-08 09:45',
-            action:'创建活动',
-            actInfo:'教师特色空间案例讨论'
-          },
-          {
-            userName:'王涛',
-            pushTime:'05-08 09:45',
-            action:'创建活动',
-            actInfo:'教师特色空间案例讨论'
-          },
-        ]
+        list:[]
       }
     },
     methods:{
@@ -147,27 +109,35 @@
       loadMore(done){
         if(this.isLoading){return}
         let len=this.list.length;
-        if(len<30){
-          setTimeout(()=>{
-            for(let i=0;i<10;i++){
-              this.list.push({
-                userName:'王涛',
-                pushTime:'05-08 09:45',
-                action:'创建活动',
-                actInfo:'教师特色空间案例讨论'
-              })
-            }
-            this.isLoading=false
-            done()
-          },1000)
-        }else{
-          console.log(this.$refs.scroller)
-
-          this.$refs.scroller.resize()
+        if(len>=30){
+          this.$refs.scroller.finishInfinite(2)
+          return
         }
+        setTimeout(()=>{
+          for(let i=0;i<4;i++){
+            this.list.push({
+              userName:'王涛',
+              pushTime:'05-08 09:45',
+              action:'创建活动',
+              actInfo:'教师特色空间案例讨论'
+            })
+          }
+          this.isLoading=false
+          done()
+        },1000)
       },
       showPop(){
         this.show1=!this.show1
+      }
+    },
+    mounted(){
+      for(let i=0;i<9;i++){
+        this.list.push( {
+          userName:'王涛',
+          pushTime:'05-08 09:45',
+          action:'创建活动',
+          actInfo:'教师特色空间案例讨论'
+        })
       }
     }
   }

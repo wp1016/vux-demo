@@ -4,7 +4,7 @@
 
     <view-box ref="viewBox" :body-padding-top="'40px'" :body-padding-bottom="'0'">
       <div slot="default">
-        <tab>
+        <tab :line-width="2">
           <tab-item selected>交流讨论</tab-item>
           <tab-item>活动文章</tab-item>
           <tab-item>活动资源</tab-item>
@@ -37,5 +37,4 @@
   }
 </script>
 <style lang="less" scoped>
-
 </style>

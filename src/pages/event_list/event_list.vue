@@ -57,9 +57,8 @@
       return{
         title:'社区活动列表',
         noDataText:'我也是有底线的',
-<<<<<<< HEAD
         isLoading:false,
-        list:[],
+        list:[]
       }
     },
     mounted(){
@@ -98,42 +97,15 @@
             this.isLoading=false
             done()
           },1500)
-=======
-        list:[
-          {
-            eventName:'教师专业发展微课程大赛',
-            admin:'武丽志',
-            eventInfo:'制作教师专业发展微课程',
-            startTime:'2017-05-26',
-            endTime:'2017-09-30',
-            btnText:'加入',
-            src:require('../../images/index_img3.jpg')
-          }
-        ]
-      }
-    },
-    mounted(){
-
-    },
-    methods:{
-      loadMore(done){
-
->>>>>>> 46899de4ce3126b8b53ba863c87630ecbb67d4eb
       }
     }
 
   }
 </script>
 <style lang="less" scoped>
-<<<<<<< HEAD
 .weui-cells{
   margin-top:0;
 }
-=======
-  .weui-cells{
-    margin-top:0;
-  }
->>>>>>> 46899de4ce3126b8b53ba863c87630ecbb67d4eb
 .media-left{
   text-align:center;
   width:80px;

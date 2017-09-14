@@ -188,13 +188,13 @@
             }
         }
     }
-    
+
     .weui-grids {
         &:before {
             display: none;
         }
     }
-    
+
     .weui-grid {
         padding: 0;
         margin-top: 1em;
@@ -205,11 +205,11 @@
             font-size: 17px;
         }
     }
-    
+
     .notice {
         color: #b3b3b3;
     }
-    
+
     .media-left {
         width: 60px;
         height: 60px;
@@ -219,7 +219,7 @@
             border-radius: 50%;
         }
     }
-    
+
     .media-inner {
         .item-title {
             font-size: 17px;
@@ -246,7 +246,7 @@
             }
         }
     }
-    
+
     .popup1 {
         text-align: center;
         margin-top: 50%;

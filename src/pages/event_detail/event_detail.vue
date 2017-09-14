@@ -134,9 +134,7 @@
               })
           }
         }
-    }
 </script>
-
 <style lang="less" scoped>
 .list-title{
   padding:0 10px;

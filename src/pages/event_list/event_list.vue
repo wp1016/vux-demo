@@ -105,7 +105,6 @@
                 }, 1500)
             }
         }
-
     }
 </script>
 <style lang="less" scoped>
@@ -114,7 +113,6 @@
             margin-top: 0;
         }
     }
-    
     .media-left {
         text-align: center;
         width: 80px;
@@ -124,7 +122,7 @@
             height: 100%;
         }
     }
-    
+
     .media-inner {
         .item-title {
             font-weight: bold;
@@ -143,7 +141,7 @@
             }
         }
     }
-    
+
     .event-time {
         padding-top: 10px;
         height: 40px;

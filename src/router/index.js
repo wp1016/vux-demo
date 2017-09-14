@@ -18,15 +18,18 @@ export default [
         },
         {
           path:'/home',
+          name:'home',
           component:home,
         },
         {
           path:'/event_list',
+          name:'event_list',
           component:event_list
         },
         {
-          path:'/event_detail',
-          component:event_detail
+          path:'/event_detail/:title',
+          name:'event_detail',
+          component:event_detail,
         }
       ]
     }

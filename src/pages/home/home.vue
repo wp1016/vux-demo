@@ -69,171 +69,193 @@
 </template>
 
 <script>
-  import {Divider,ViewBox,Group,Cell,CellBox,XHeader,XButton,Grid,GridItem,Flexbox,FlexboxItem,Loading,Popup} from 'vux'
-  export default {
-    components:{
-      Divider,
-      Grid,
-      GridItem,
-      ViewBox,
-      XButton,
-      XHeader,
-      Group,
-      CellBox,
-      Cell,
-      Flexbox,
-      FlexboxItem,
-      Loading,
-      Popup
-    },
-    data(){
-      return{
-        title:'教师科研社区',
-        msg:'加入',
-        isLoading:false,
-        show1:false,
-        noDataText:'我也是有底线的',
-        style:{
-          zIndex:1001,
-          background:'rgba(0,0,0,.4)'
+    import {
+        Divider,
+        ViewBox,
+        Group,
+        Cell,
+        CellBox,
+        XHeader,
+        XButton,
+        Grid,
+        GridItem,
+        Flexbox,
+        FlexboxItem,
+        Loading,
+        Popup
+    } from 'vux'
+    export default {
+        components: {
+            Divider,
+            Grid,
+            GridItem,
+            ViewBox,
+            XButton,
+            XHeader,
+            Group,
+            CellBox,
+            Cell,
+            Flexbox,
+            FlexboxItem,
+            Loading,
+            Popup
         },
-        list:[]
-      }
-    },
-    methods:{
-      join(){
-        if(this.msg=='加入'){
-          this.msg='待审核'
+        data() {
+            return {
+                title: '教师科研社区',
+                msg: '加入',
+                isLoading: false,
+                show1: false,
+                noDataText: '我也是有底线的',
+                style: {
+                    zIndex: 1001,
+                    background: 'rgba(0,0,0,.4)'
+                },
+                list: []
+            }
+        },
+        methods: {
+            join() {
+                if (this.msg == '加入') {
+                    this.msg = '待审核'
+                }
+            },
+            loadMore(done) {
+                if (this.isLoading) {
+                    return
+                }
+                let len = this.list.length;
+                if (len >= 30) {
+                    this.$refs.scroller.finishInfinite(2)
+                    return
+                }
+                setTimeout(() => {
+                    for (let i = 0; i < 4; i++) {
+                        this.list.push({
+                            userName: '王涛',
+                            pushTime: '05-08 09:45',
+                            action: '创建活动',
+                            actInfo: '教师特色空间案例讨论'
+                        })
+                    }
+                    this.isLoading = false
+                    done()
+                }, 1000)
+            },
+            showPop() {
+                this.show1 = !this.show1
+            }
+        },
+        mounted() {
+            for (let i = 0; i < 9; i++) {
+                this.list.push({
+                    userName: '王涛',
+                    pushTime: '05-08 09:45',
+                    action: '创建活动',
+                    actInfo: '教师特色空间案例讨论'
+                })
+            }
         }
-      },
-      loadMore(done){
-        if(this.isLoading){return}
-        let len=this.list.length;
-        if(len>=30){
-          this.$refs.scroller.finishInfinite(2)
-          return
-        }
-        setTimeout(()=>{
-          for(let i=0;i<4;i++){
-            this.list.push({
-              userName:'王涛',
-              pushTime:'05-08 09:45',
-              action:'创建活动',
-              actInfo:'教师特色空间案例讨论'
-            })
-          }
-          this.isLoading=false
-          done()
-        },1000)
-      },
-      showPop(){
-        this.show1=!this.show1
-      }
-    },
-    mounted(){
-      for(let i=0;i<9;i++){
-        this.list.push( {
-          userName:'王涛',
-          pushTime:'05-08 09:45',
-          action:'创建活动',
-          actInfo:'教师特色空间案例讨论'
-        })
-      }
     }
-  }
 </script>
 <style lang="less" scoped>
-.content-top{
-  height:auto;
-  background:#fff url(../../images/index_bg1.jpg) center top no-repeat;
-  background-size:100%;
-  position:relative;
-  .top_wrap{
-    position:absolute;
-    top:0;
-    left:20px;
-    right:20px;
-    padding-top:10px;
-    .fl{
-      img{
-        width:20px;
-        height:20px;
-      }
+    .content-top {
+        height: auto;
+        background: #fff url(../../images/index_bg1.jpg) center top no-repeat;
+        background-size: 100%;
+        position: relative;
+        .top_wrap {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            padding-top: 10px;
+            .fl {
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            .fr {
+                color: #fff;
+            }
+        }
+        .img_wrap {
+            padding-top: 50px;
+            text-align: center;
+            img {
+                width: 25%;
+            }
+        }
     }
-    .fr{
-      color:#fff;
+    
+    .weui-grids {
+        &:before {
+            display: none;
+        }
     }
-  }
-  .img_wrap{
-    padding-top:50px;
-    text-align:center;
-    img{
-      width:25%;
+    
+    .weui-grid {
+        padding: 0;
+        margin-top: 1em;
+        &:after {
+            display: none;
+        }
+        span {
+            font-size: 17px;
+        }
     }
-  }
-}
-  .weui-grids{
-    &:before{
-      display:none;
+    
+    .notice {
+        color: #b3b3b3;
     }
-  }
-  .weui-grid{
-    padding:0;
-    margin-top:1em;
-    &:after{
-      display:none;
+    
+    .media-left {
+        width: 60px;
+        height: 60px;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
     }
-    span{
-      font-size:17px;
+    
+    .media-inner {
+        .item-title {
+            font-size: 17px;
+            .fl {
+                color: #212121;
+            }
+            .fr {
+                color: #b3b3b3;
+            }
+        }
+        .item-text {
+            margin-top: 10px;
+            height: 30px;
+            color: #a1a1a1;
+            font-size: 15px;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            em {
+                margin-left: 10px;
+                font-style: normal;
+                color: #717171;
+            }
+        }
     }
-  }
-  .notice{
-    color:#b3b3b3;
-  }
-  .media-left{
-    width:60px;
-    height:60px;
-    img{
-      width:100%;
-      height:100%;
-      border-radius:50%;
+    
+    .popup1 {
+        text-align: center;
+        margin-top: 50%;
+        span {
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%);
+        }
     }
-  }
-  .media-inner{
-    .item-title{
-      font-size:17px;
-      .fl{
-        color:#212121;
-      }
-      .fr{
-        color:#b3b3b3;
-      }
-    }
-    .item-text{
-      margin-top:10px;
-      height:30px;
-      color:#a1a1a1;
-      font-size:15px;
-      overflow:hidden;
-      white-space:normal;
-      text-overflow:ellipsis;
-      word-break:break-all;
-      em{
-        margin-left:10px;
-        font-style:normal;
-        color:#717171;
-      }
-    }
-  }
-  .popup1{
-    text-align:center;
-    margin-top:50%;
-    span{
-      display:block;
-      position:absolute;
-      left:50%;
-      bottom:10%;
-      transform:translateX(-50%);
-    }
-  }
 </style>
